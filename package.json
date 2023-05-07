@@ -6,12 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "start-server": "node app.js"
+    "start-server": "node app.js",
+    "build": "npx webpack --config webpack.config.js"
   },
   "author": "Shubham",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.18.3"
+    "nodemon": "^1.18.3",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.1.0"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
