@@ -3,22 +3,24 @@
   "version": "1.0.0",
   "description": "nodejs",
   "main": "app.js",
+  "engines": {
+    "node" : "19.6.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
+    "start": "NODE_ENV=production MONGO_USER=Shubham MONGO_PASSWORD=0000 MONGO_DEFAULT_DATABASE=shop STRIPE_KEY=sk_test_51LbmFbSBWw74xEbGKAHAdoqOFJYZjSODtrcOpfbgIODL4KVzG5SPTY4LvFBRVzGtSPRuqIN8bhw59u0WwP9A4BxQ003Kxb4cCL node app.js",
     "start-server": "node app.js",
-    "build": "npx webpack --config webpack.config.js"
+    "start:dev": "nodemon app.js"
   },
   "author": "Shubham",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.18.3",
-    "webpack": "^5.82.0",
-    "webpack-cli": "^5.1.0"
+    "nodemon": "^1.18.3"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "compression": "^1.7.4",
     "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^3.1.1",
     "csurf": "^1.11.0",
@@ -26,11 +28,15 @@
     "express": "^4.16.3",
     "express-session": "^1.17.3",
     "express-validator": "^7.0.1",
+    "helmet": "^7.0.0",
     "mongodb": "^5.2.0",
     "mongoose": "^7.0.3",
+    "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.1",
     "pdfkit": "^0.13.0",
-    "stripe": "^12.2.0"
+    "stripe": "^12.2.0",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.1.0"
   }
 }
