@@ -11,6 +11,7 @@ const flash = require("connect-flash");
 const multer = require("multer");
 const helmet = require("helmet");
 const compression = require("compression");
+require("dotenv").config();
 
 const errorController = require("./controllers/error");
 const User = require("./models/User");
