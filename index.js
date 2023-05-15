@@ -13,8 +13,8 @@ const helmet = require("helmet");
 const compression = require("compression");
 const morgan = require("morgan");
 
-const errorController = require("../controllers/error");
-const User = require("../models/User");
+const errorController = require("./controllers/error");
+const User = require("./models/User");
 
 const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.ein31fd.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`;
 
@@ -49,9 +49,9 @@ const fileFilter = (req, file, cb) => {
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-const adminRoutes = require("../routes/admin");
-const shopRoutes = require("../routes/shop");
-const authRoutes = require("../routes/auth");
+const adminRoutes = require("./routes/admin");
+const shopRoutes = require("./routes/shop");
+const authRoutes = require("./routes/auth");
 
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, "access.log"),
@@ -68,8 +68,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
   multer({ storage: fileStorage, fileFilter: fileFilter }).single("image")
 );
-app.use(express.static(path.join(__dirname, "../public")));
-app.use("/images", express.static(path.join(__dirname, "../images")));
+app.use(express.static(path.join(__dirname, "public")));
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 app.use(
   session({
